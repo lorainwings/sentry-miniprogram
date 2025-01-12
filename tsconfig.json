@@ -1,11 +1,19 @@
 {
-  "extends": "./node_modules/@sentry/typescript/tsconfig.json",
-  "include": ["src/**/*", "test/**/*"],
-  "exclude": ["./examples"],
   "compilerOptions": {
-    "outDir": "dist",
-    "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true
-  }
+    "module": "ESNext",
+    "target": "ESNext",
+    "strict": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "./dts",
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "./dts",
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "test/**/*"],
+  "exclude": ["node_modules", "dist", "examples", "dts"]
 }

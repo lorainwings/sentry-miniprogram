@@ -17,6 +17,11 @@ interface SDK {
   onPageNotFound?: Function;
   onMemoryWarning?: Function;
   getLaunchOptionsSync?: Function;
+  getSystemSetting: Function;
+  getAppAuthorizeSetting: Function;
+  getDeviceInfo: Function;
+  getWindowInfo: Function;
+  getAppBaseInfo: Function;
 }
 
 /**
@@ -42,6 +47,11 @@ const getSDK = () => {
     httpRequest: () => {},
     // tslint:disable-next-line: no-empty
     getSystemInfoSync: () => {},
+    getSystemSetting: () => {},
+    getAppAuthorizeSetting: () => {},
+    getDeviceInfo: () => {},
+    getWindowInfo: () => {},
+    getAppBaseInfo: () => {}
   };
 
   if (typeof wx === "object") {

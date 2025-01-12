@@ -5,10 +5,7 @@ import { appName as currentAppName, sdk } from "../crossPlatform";
 
 /** UserAgent */
 export class System implements Integration {
-  /**
-   * @inheritDoc
-   */
-  public name: string = System.id;
+
 
   /**
    * @inheritDoc
@@ -18,11 +15,24 @@ export class System implements Integration {
   /**
    * @inheritDoc
    */
+  public name: string = System.id;
+
+  /**
+   * @inheritDoc
+   */
   public setupOnce(): void {
     addGlobalEventProcessor((event: Event) => {
       if (getCurrentHub().getIntegration(System)) {
         try {
-          const systemInfo = sdk.getSystemInfoSync();
+          // const systemInfo = sdk.getSystemInfoSync();
+          const systemInfo = [
+            sdk.getSystemSetting(),
+            sdk.getAppAuthorizeSetting(),
+            sdk.getDeviceInfo(),
+            sdk.getWindowInfo(),
+            sdk.getAppBaseInfo()
+          ].reduce((o, res) => (o = { ...o, ...res }), {})
+
           const {
             SDKVersion = "0.0.0",
             batteryLevel, // 微信小程序

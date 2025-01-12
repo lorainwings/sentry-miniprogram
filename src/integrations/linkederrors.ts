@@ -9,15 +9,16 @@ const DEFAULT_LIMIT = 5;
 
 /** Adds SDK info to an event. */
 export class LinkedErrors implements Integration {
-  /**
-   * @inheritDoc
-   */
-  public readonly name: string = LinkedErrors.id;
 
   /**
    * @inheritDoc
    */
   public static id: string = 'LinkedErrors';
+
+  /**
+   * @inheritDoc
+   */
+  public readonly name: string = LinkedErrors.id;
 
   /**
    * @inheritDoc

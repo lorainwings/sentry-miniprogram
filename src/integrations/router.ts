@@ -10,15 +10,16 @@ interface RouterIntegrations {
 
 /** UserAgent */
 export class Router implements Integration {
-  /**
-   * @inheritDoc
-   */
-  public name: string = Router.id;
 
   /**
    * @inheritDoc
    */
   public static id: string = "Router";
+
+  /**
+   * @inheritDoc
+   */
+  public name: string = Router.id;
 
   /** JSDoc */
   private readonly _options: RouterIntegrations;

@@ -203,14 +203,6 @@ npm publish --registry=https://registry.npmjs.org/
 
 欢迎通过 `issue`、`pull request`等方式贡献 `sentry-miniapp`。
 
-## 联系作者
+## 声明
 
-PS. 由于微信群二维码有时效性限制，想入群的同学还可以加作者微信（添加时请备注 sentry-miniapp），由作者邀请入群
-
-### sentry-miniapp 微信交流群
-
-<img src="docs/qrcode/sentry-miniapp.jpeg" alt="微信交流群二维码" width="300" height="400" />
-
-### 作者微信二维码
-
-<img src="docs/qrcode/zhiyao.jpeg" alt="作者微信二维码" width="300" height="300" />
+本项目基于 [sentry-miniapp](https://github.com/lizhiyao/sentry-miniapp) 项目进行修改，更新了一些小程序和Sentry官方废弃的一些API，感谢原作者的贡献。

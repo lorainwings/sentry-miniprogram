@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Integration, WrappedFunction } from "@sentry/types";
 import { fill, getGlobalObject } from "@sentry/utils";
 
@@ -11,12 +12,12 @@ export class TryCatch implements Integration {
   /**
    * @inheritDoc
    */
-  public name: string = TryCatch.id;
+  public static id: string = "TryCatch";
 
   /**
    * @inheritDoc
    */
-  public static id: string = "TryCatch";
+  public name: string = TryCatch.id;
 
   /** JSDoc */
   private _wrapTimeFunction(original: () => void): () => number {

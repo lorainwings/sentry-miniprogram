@@ -35,3 +35,5 @@ lint-results.json
 
 # legacy
 tmp.js
+
+dts/

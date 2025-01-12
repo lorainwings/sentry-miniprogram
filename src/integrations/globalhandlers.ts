@@ -14,15 +14,16 @@ interface GlobalHandlersIntegrations {
 
 /** Global handlers */
 export class GlobalHandlers implements Integration {
-  /**
-   * @inheritDoc
-   */
-  public name: string = GlobalHandlers.id;
+  
+/**
+  * @inheritDoc
+  */
+ public static id: string = "GlobalHandlers";
 
-  /**
-   * @inheritDoc
-   */
-  public static id: string = "GlobalHandlers";
+ /**
+  * @inheritDoc
+  */
+ public name: string = GlobalHandlers.id;
 
   /** JSDoc */
   private readonly _options: GlobalHandlersIntegrations;
