@@ -7,7 +7,7 @@
 ![github watchers](https://img.shields.io/github/watchers/lizhiyao/sentry-miniapp?style=social)
 ![github license](https://img.shields.io/github/license/lizhiyao/sentry-miniapp)
 
-用于小程序平台的 Sentry SDK
+用于小程序平台的 Sentry SDK, 本项目基于 [sentry-miniapp](https://github.com/lizhiyao/sentry-miniapp) 项目进行修改，更新了一些小程序和Sentry官方废弃的一些API
 
 ## 功能特点
 
@@ -202,7 +202,3 @@ npm publish --registry=https://registry.npmjs.org/
 ## 贡献
 
 欢迎通过 `issue`、`pull request`等方式贡献 `sentry-miniapp`。
-
-## 声明
-
-本项目基于 [sentry-miniapp](https://github.com/lizhiyao/sentry-miniapp) 项目进行修改，更新了一些小程序和Sentry官方废弃的一些API，感谢原作者的贡献。
