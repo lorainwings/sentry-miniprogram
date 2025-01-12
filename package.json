@@ -1,5 +1,5 @@
 {
-  "name": "sentry-miniprogram",
+  "name": "@infinityatom/sentry-miniprogram",
   "version": "0.1.0",
   "description": "用于小程序/小游戏平台的 Sentry SDK",
   "repository": "git://github.com/lorainwings/sentry-miniapp.git",
