@@ -1,6 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import terser  from '@rollup/plugin-terser';
+import terser from '@rollup/plugin-terser';
 import babel from '@rollup/plugin-babel'
 import typescript from '@rollup/plugin-typescript'
 import dts from 'rollup-plugin-dts';
@@ -14,18 +14,18 @@ let configs = [];
 const production = process.env.NODE_ENV === 'production';
 
 // 基础配置
-const baseConfig = {
+const baseConfig = (d = './dist') => ({
   input: './src/index.ts',
   plugins: [
     resolve({ preferBuiltins: true }),
     commonjs(),
-    typescript({ 
+    typescript({
       compilerOptions: {
         sourceMap: !production,
         declaration: false,
         declarationMap: false,
-        outDir: './dist',
-        declarationDir: './dist'
+        outDir: d,
+        declarationDir: d
       }
     }),
     babel({
@@ -36,7 +36,7 @@ const baseConfig = {
     }),
     terser()
   ]
-};
+});
 
 
 // 平台特定的输出配置
@@ -47,28 +47,31 @@ const platforms = [
   { name: 'swan', folder: 'swan' },
   { name: 'tt', folder: 'ttapp' },
   { name: 'wx', folder: 'weapp' },
-  { name: 'wxgame', folder: 'wegame' }
+  { name: 'wx', folder: 'wegame' }
 ];
 
 // 生成每个平台的配置
 
 if (isPlatform) {
-  configs = platforms.map(platform => ({
-    ...baseConfig,
-    output: {
-      file: path.resolve(__dirname, `./examples/${platform.folder}/vendor/sentry-miniapp.${platform.name}.min.js`),
-      format: 'cjs',
-      sourcemap: true
+  configs = platforms.map(platform => {
+    const d = path.resolve(__dirname, `./examples/${platform.folder}/vendor`);
+    return {
+      ...baseConfig(d),
+      output: {
+        file: path.resolve(__dirname, `${d}/sentry-miniapp.${platform.name}.min.js`),
+        format: 'cjs',
+        sourcemap: true
+      }
     }
-  }));
+  });
 } else {
   // 全部生成到dist目录, 用于发布, 打包成esm和cjs两种格式
-  configs = ['cjs','esm'].map(format => ({
-    ...baseConfig,
+  configs = ['cjs', 'esm'].map(format => ({
+    ...baseConfig(),
     output: {
-        file: path.resolve(__dirname, `./dist/index.${format}.js`),
-        format: format,
-        sourcemap: true
+      file: path.resolve(__dirname, `./dist/index.${format}.js`),
+      format: format,
+      sourcemap: true
     }
   }));
   // 添加处理.d.ts文件的配置
